@@ -1,1 +1,5 @@
 @import '~antd/dist/antd.css';
+
+.border{
+  border: 1px solid grey;
+}

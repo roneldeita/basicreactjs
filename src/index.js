@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Routes from './routes.js';
+import Routes from './routes';
+import Store from './store';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<Routes />, document.getElementById('root'));
+const store = Store();
+
+ReactDOM.render(<Routes store={store} />, document.getElementById('root'));
 registerServiceWorker();
