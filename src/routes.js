@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
@@ -23,5 +23,9 @@ const Routes = ({store}) => (
     </Router>
   </Provider>
 )
+
+Routes.propTypes = {
+  store : PropTypes.object.isRequired
+}
 
 export default Routes;
