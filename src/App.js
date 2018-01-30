@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './App.css';
-import { Menu, Affix, Icon, BackTop  } from 'antd';
+import { Menu, Affix, Icon, BackTop, Row, Col  } from 'antd';
 
 class App extends Component {
   render() {
@@ -16,7 +16,12 @@ class App extends Component {
             <Menu.Item key="courses"><Link to="/courses"><Icon type="appstore-o" />Courses</Link></Menu.Item>
           </Menu>
         </Affix>
-        { this.props.children }
+        <br/>
+        <Row className="" type="flex" justify="center">
+          <Col className="" xs={20} sm={16} md={16}>
+            { this.props.children }
+          </Col>
+        </Row>
         <BackTop>
           <Icon type="up-circle" style={{fontSize:"40px"}} />
         </BackTop>
