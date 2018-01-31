@@ -5,6 +5,7 @@ import delay from './delay';
 // All calls return promises.
 const courses = [
   {
+    id: "react-flux-building-applications",
     key: "react-flux-building-applications",
     title: "Building Applications in React and Flux",
     watchHref: "http://www.pluralsight.com/courses/react-flux-building-applications",
@@ -13,6 +14,7 @@ const courses = [
     category: "JavaScript"
   },
   {
+    id: "clean-code",
     key: "clean-code",
     title: "Clean Code: Writing Code for Humans",
     watchHref: "http://www.pluralsight.com/courses/writing-clean-code-humans",
@@ -21,6 +23,7 @@ const courses = [
     category: "Software Practices"
   },
   {
+    id: "architecture",
     key: "architecture",
     title: "Architecting Applications for the Real World",
     watchHref: "http://www.pluralsight.com/courses/architecting-applications-dotnet",
@@ -29,6 +32,7 @@ const courses = [
     category: "Software Architecture"
   },
   {
+    id: "career-reboot-for-developer-mind",
     key: "career-reboot-for-developer-mind",
     title: "Becoming an Outlier: Reprogramming the Developer Mind",
     watchHref: "http://www.pluralsight.com/courses/career-reboot-for-developer-mind",
@@ -37,6 +41,7 @@ const courses = [
     category: "Career"
   },
   {
+    id: "web-components-shadow-dom",
     key: "web-components-shadow-dom",
     title: "Web Component Fundamentals",
     watchHref: "http://www.pluralsight.com/courses/web-components-shadow-dom",
@@ -82,6 +87,7 @@ class CourseApi {
           //The server would generate ids and watchHref's for new courses in a real app.
           //Cloning so copy returned is passed by value rather than by reference.
           course.id = generateId(course);
+          course.key = generateId(course);
           course.watchHref = `http://www.pluralsight.com/courses/${course.id}`;
           courses.push(course);
         }

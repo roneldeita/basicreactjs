@@ -4,25 +4,30 @@ import { Form , Input, Select, Button} from 'antd';
 const FormItem = Form.Item;
 const Option = Select.Option;
 
-const CourseForm = ({course, allAuthors, onSave, onChange, loading, errors }) => {
-  //console.log(course)
+
+const authorOps = (allAuthors) => {
+  return allAuthors.map((author, index)=>{
+    return <Option key={index} value={author.id}>{`${author.firstName} ${author.lastName}`}</Option>
+  })
+}
+
+const CourseForm = ({course, allAuthors, onSave, onSelect, onChange, loading, errors }) => {
   return (
     <Form>
       <h3>Manage Course</h3>
       <FormItem>
-        <Input name="title" placeholder="Username" />
+        <Input name="title" placeholder="Title" value={course.title} onChange={onChange} />
       </FormItem>
       <FormItem>
-        <Select value="rmb" placeholder="Select an Author">
-          <Option value="rmb">RMB</Option>
-          <Option value="dollar">Dollar</Option>
+        <Select placeholder="Select an Author" value={course.authorId} onChange={onSelect}>
+          {authorOps(allAuthors)}
         </Select>
       </FormItem>
       <FormItem>
-        <Input name="category" placeholder="Category" />
+        <Input name="category" placeholder="Category" value={course.category} onChange={onChange} />
       </FormItem>
       <FormItem>
-        <Input name="length" placeholder="Length" />
+        <Input name="length" placeholder="Length" value={course.length} onChange={onChange} />
       </FormItem>
       <FormItem>
         <Button type="primary" htmlType="button" onClick={onSave} loading={loading}>
@@ -32,7 +37,6 @@ const CourseForm = ({course, allAuthors, onSave, onChange, loading, errors }) =>
     </Form>
   )
 }
-console.log(CourseForm)
 
 CourseForm.propTypes = {
   course : PropTypes.object,
